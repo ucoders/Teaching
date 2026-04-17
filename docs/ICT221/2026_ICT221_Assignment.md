@@ -217,7 +217,7 @@ Start by drawing one or two paper sketches of the GUI you plan to build. Take a 
 
 # Submission and Marking Criteria
 
-Your report should be developed in Cadmus, based on the report template given in the Assessment / Task 2 area on Canvas. Your source code is hosted in your GitHub repository. You are reminded that your submission must be completely your own individual work, in your own words, and you must correctly reference any external sources that you use in your report, or in your code.
+Your report should be developed in Cadmus, based on the report template given their. Your source code is hosted in your GitHub repository. You are reminded that your submission must be completely your own individual work, in your own words, and you must correctly reference any external sources that you use in your report, or in your code.
 
 Your submission will be marked using the following criteria:
 
