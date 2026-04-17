@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: ICT221 2026 Task 2
 ---
 
