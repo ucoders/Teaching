@@ -1,0 +1,15 @@
+# ── Site identity ──────────────────────────────────────────────────────────────
+title: YOUR SITE TITLE
+description: A short description of this site.
+
+# ── Theme ──────────────────────────────────────────────────────────────────────
+# Supported GitHub Pages themes:
+#   jekyll-theme-cayman (default here), jekyll-theme-minimal,
+#   jekyll-theme-modernist, jekyll-theme-slate, jekyll-theme-hacker, etc.
+# The style.scss uses @import "{{ site.theme }}" so changing this line is enough.
+theme: jekyll-theme-cayman
+
+# ── Build settings ─────────────────────────────────────────────────────────────
+show_downloads: false
+plugins:
+  - jekyll-feed
