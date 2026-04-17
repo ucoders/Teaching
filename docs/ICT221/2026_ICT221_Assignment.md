@@ -1,6 +1,7 @@
 ---
 layout: default
 title: ICT221 2026 Task 2
+description: Instructions for the coding assignment
 ---
 
 # ICT221 Java Programming Assignment
