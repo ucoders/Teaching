@@ -6,11 +6,12 @@
 /* ── Page body: content + TOC sidebar ── */
 .page-body {
   display: flex;
-  align-items: flex-start;
+  /* intentionally NO align-items: flex-start — default stretch makes the
+     sidebar span the full article height, which is required for sticky to work */
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 /* ── Main content ── */
@@ -21,8 +22,9 @@
 
 /* ── Sticky TOC sidebar (right) ── */
 .toc-sidebar {
-  flex: 0 0 220px;
-  order: 2; /* place to the right of main content */
+  flex: 0 0 230px;
+  order: 2; /* right of main content */
+  /* Do NOT set overflow here — that would break sticky */
 }
 
 .toc-nav {
@@ -30,52 +32,88 @@
   top: 1.5rem;
   max-height: calc(100vh - 3rem);
   overflow-y: auto;
-  background: #f6f8fa;
-  border-left: 3px solid #ccc;
-  padding: 0.75rem 1rem;
-  border-radius: 0 4px 4px 0;
-  font-size: 0.85rem;
+
+  background: #fff;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 1rem;
+  font-size: 0.83rem;
+  line-height: 1.5;
 }
 
 .toc-title {
+  display: block;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.75rem;
-  margin: 0 0 0.5rem 0;
-  color: #555;
+  letter-spacing: 0.07em;
+  font-size: 0.7rem;
+  color: #586069;
+  margin: 0 0 0.6rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #e1e4e8;
 }
 
-/* TOC list reset and indent */
-.toc {
+.page-header {
+  padding: 2rem 1rem;
+}
+
+/* ── TOC list ── */
+/* High-specificity selectors so theme's global `a` styles don't win */
+.toc-nav .toc,
+.toc-nav .toc ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
 
-  ul {
-    margin: 0;
-    padding-left: 0.9rem;
-    list-style: none;
-  }
+.toc-nav .toc ul {
+  padding-left: 0.85rem;
+  border-left: 1px solid #e1e4e8;
+  margin-left: 0.3rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+}
 
-  li {
-    margin: 0.2rem 0;
-    line-height: 1.4;
-  }
+.toc-nav .toc li {
+  margin: 0;
+  line-height: 1.45;
+}
 
-  a {
-    color: #444;
-    text-decoration: none;
-    display: block;
-    padding: 0.1rem 0.2rem;
-    border-radius: 2px;
-    transition: color 0.15s, background 0.15s;
+/* Top-level items: slightly bolder */
+.toc-nav .toc > li > a {
+  font-weight: 600;
+  color: #24292e;
+}
 
-    &:hover {
-      color: #0366d6;
-      background: #e8f0fe;
-    }
-  }
+/* All TOC links */
+.toc-nav .toc a {
+  display: block;
+  padding: 0.2rem 0.35rem;
+  border-radius: 4px;
+  color: #24292e;
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toc-nav .toc a:hover {
+  background: #f1f8ff;
+  color: #0366d6;
+  text-decoration: none;
+}
+
+/* Sub-level items: lighter weight and smaller */
+.toc-nav .toc ul a {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #586069;
+}
+
+.toc-nav .toc ul a:hover {
+  color: #0366d6;
 }
 
 /* ── Mobile: stack TOC above content ── */
@@ -92,9 +130,6 @@
 
   .toc-nav {
     position: static; /* no sticky on mobile */
-    max-height: none;
-    border-left: none;
-    border-top: 3px solid #ccc;
-    border-radius: 0 0 4px 4px;
+    max-height: 12rem;
   }
 }
