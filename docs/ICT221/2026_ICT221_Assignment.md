@@ -1,3 +1,8 @@
+---
+layout: page
+title: ICT221 2026 Task 2
+---
+
 # ICT221 Java Programming Assignment
 
 This is Task 2 of ICT221, which is worth 40% of the course. Your solution must be clearly separated into two parts, in separate Java packages:
